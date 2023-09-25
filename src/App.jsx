@@ -94,22 +94,21 @@ const App = () => {
         <p>Tidak ada catatan.</p>
       ) : (
         <div className="flex flex-wrap justify-center">
-          {filteredCatatanList.map((catatan) => (
-            <div key={catatan.id} className="bg-white rounded-md p-4 m-2 shadow-md mb-4 w-1/5 relative" style={{ height: '400px' }}>
-            <h2 className="text-xl font-semibold text-left">{catatan.title}</h2>
-            <p className="text-gray-300 text-xs text-left mb-3">
-              {showFormattedDate(catatan.createdAt)}
-            </p>
-            <div className="h-3/4 overflow-y-auto">
-              <p className="text-gray-700 text-left">{catatan.body}</p>
-            </div>
-            <div className="absolute bottom-2 right-2">
-              <button className="text-red-600 hover:text-red-800" onClick={() => handleHapusCatatan(catatan.id)}>Hapus</button>
-            </div>
-          </div>
-          
-          ))}
-        </div>
+  {filteredCatatanList.map((catatan) => (
+    <div key={catatan.id} className="bg-white rounded-md p-4 m-2 shadow-md mb-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 relative" style={{ minHeight: '400px' }}>
+      <h2 className="text-xl font-semibold text-left">{catatan.title}</h2>
+      <p className="text-gray-300 text-xs text-left mb-3">
+        {showFormattedDate(catatan.createdAt)}
+      </p>
+      <div className="h-3/4 overflow-y-auto">
+        <p className="text-gray-700 text-left">{catatan.body}</p>
+      </div>
+      <div className="absolute bottom-2 right-2">
+        <button className="text-red-600 hover:text-red-800" onClick={() => handleHapusCatatan(catatan.id)}>Hapus</button>
+      </div>
+    </div>
+  ))}
+</div>
       )}
     </div>
   );
